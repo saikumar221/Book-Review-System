@@ -13,13 +13,13 @@ app = Flask(__name__)
 
 # Check for environment variable
 
-os.environ['DATABASE_URL'] = "postgres://wolhkxmhprxbtl:e512c06b0a9bc06a8d642b1bcb8d549357b0d808cbf5335f76188671b0671c06@ec2-34-239-241-25.compute-1.amazonaws.com:5432/d8f5k154eujsth"
+os.environ['DATABASE_URL'] = "postgres://wolhkxmhprxbtl:@ec2-34-239-241-25.compute-1.amazonaws.com:5432/d8f5k154eujsth"
 if not os.getenv("DATABASE_URL"):
     raise RuntimeError("DATABASE_URL is not set")
 
 
 # Set the secret key to some random bytes. Keep this really secret!
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+app.secret_key = b'_5#y2\n\xec]/'
 # Configure session to use filesystem
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
