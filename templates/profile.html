@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+    <h1>User Details</h1>
+    <h3>{{name}}</h3>
+    <h1>Comments</h1>
+    <ol>
+        {% for comment in comments %}
+        <li>
+            <ul>{{comment.username}}</ul>
+            <ul>{{comment.comment}}</ul>
+            <ul><a href="{{ url_for('book', isbn=comment.isbn) }}">
+                    {{comment.isbn}} </a></ul>
+        </li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}

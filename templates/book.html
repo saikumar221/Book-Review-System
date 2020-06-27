@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<nav class="navbar navbar-default sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand p-0" href="index.html">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Sunrisers_Hyderabad.svg/1200px-Sunrisers_Hyderabad.svg.png"
+        width="80px" height="50px" alt="Sunrisers logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active p-2">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link" href="About.html">About</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link" href="squad.html">Squad</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link" href="archive.html">Archive</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link" href="otherteams.html">Other Teams</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li>
+          <a class="nav-link" href="https://twitter.com/SunRisers" target="_blank"><img
+              src="https://pluspng.com/img-png/png-twitter-logo-twitter-in-png-2500.png" alt="Twitter" width="40px"
+              height="30px"></a>
+        </li>
+        <li>
+          <a class="nav-link" href="https://www.facebook.com/sunrisershyderabad/" target="_blank"><img
+              src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/facebook-512.png" width="30px"
+              alt="Facebook" height="30px"></a>
+        </li>
+        <li>
+          <a class="nav-link" href="https://www.instagram.com/sunrisershyd/?hl=en" target="_blank"><img
+              src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c521.png" width="30px" alt="Instagram"
+              height="30px"></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  </nav>
+<div class="container">
+    <h1>Book Details</h1>
+    <ul>
+        <li>
+            {{book.isbn}}
+        </li>
+        <li>
+            {{book.title}}
+        </li>
+        <li>
+            {{book.author}}
+        </li>
+        <li>
+            {{book.year}}
+        </li>
+    </ul>
+    <h1>Comments</h1>
+    <form action="{{ url_for('post', isbn=book.isbn) }}" method="post">
+        <input type="text" name='comment' placeholder="Enter Comments">
+        <input type="submit" value="Post" {{disable}}>
+    </form>
+    <ol>
+        {% for comment in comments %}
+        <li>
+            <ul>{{comment.username}}</ul>
+            <ul>{{comment.comment}}</ul>
+        </li>
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}

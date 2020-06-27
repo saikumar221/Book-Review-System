@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="../static/login.css" rel="stylesheet">
+</link>
+<!------ Include the above in your HEAD tag ---------->
+{% endblock%}
+
+{% block body %}
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h3>Register Here</h3>
+
+            <p> Don't have an account yet? No worries Register by clicking the below button now! </p>
+            <div class="form-group">
+                <a href="{{ url_for('register') }}"><button class="btnSubmit register">Register</button></a>
+            </div>
+        </div>
+
+        <div class="col-md-6 login-form-2">
+            <div class="login-logo">
+                <img src="./static/logo10.png" alt="" />
+            </div>
+            <h3>Login Form</h3>
+            <form method="post" class="needs-validation">
+                <div class="form-group">
+                    <input type="text" class="form-control" name=username placeholder="Your username *" value=""
+                        required />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Your Password *" value=""
+                        required />
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Login" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
